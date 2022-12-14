@@ -1,0 +1,14 @@
+<mat-card
+  class="card"
+  fxLayout="column"
+  fxLayoutGap="10px"
+  *ngIf="childDetails"
+>
+  <div [fxLayout]="layout" fxLayoutGap="auto" fxLayoutAlign="center center">
+    <div [fxFlex]="childDetails.money">Name: {{ childDetails.name }}</div>
+    <div [fxFlex]="childDetails.money">Money: {{ childDetails.money }}</div>
+    <button [fxFlex]="childDetails.money" mat-raised-button color="accent" (click)="addMoney()">
+      Add Money
+    </button>
+  </div>
+</mat-card>

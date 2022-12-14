@@ -1,0 +1,9 @@
+<mat-expansion-panel *ngIf="childData">
+  <mat-expansion-panel-header>
+    <mat-panel-title> {{ childData.name }} </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <div *ngFor="let data of childData.list">
+    {{ data }}
+  </div>
+</mat-expansion-panel>

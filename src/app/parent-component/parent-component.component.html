@@ -1,0 +1,53 @@
+<mat-card class="card" fxLayout="column" fxLayoutGap="10px">
+  <div fxLayout="row" fxLayoutGap="auto">
+    <button mat-raised-button color="primary" (click)="sendMoney(1)">
+      Send Money to Jack
+    </button>
+
+    <button mat-raised-button color="primary" (click)="sendMoney(2)">
+      Send Money to Jill
+    </button>
+  </div>
+
+  <div fxLayout="row" fxLayoutGap="auto">
+    <button mat-raised-button color="primary" (click)="getMoney(1)">
+      Get Money to Jack
+    </button>
+    <button mat-raised-button color="primary" (click)="getMoney(2)">
+      Get Money to Jill
+    </button>
+  </div>
+
+  <div fxLayout="column" fxLayoutGap="auto">
+    <form [formGroup]="orientationForm">
+      <mat-radio-group
+        class="radio-group"
+        formControlName="operation"
+        (change)="onChangeOrientation($event)"
+      >
+        <mat-radio-button
+          class="radio-button"
+          *ngFor="let operation of operation"
+          [value]="operation"
+        >
+          {{ operation }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </form>
+  </div>
+
+  <app-child-component
+    [childDetails]="childDetails"
+    [layout]="layout"
+  ></app-child-component>
+
+  <app-child2-component
+    [childDetails]="childDetails1"
+    [layout]="layout"
+  ></app-child2-component>
+
+  <div *ngFor="let child of childrenArray;">
+    <app-expand-child [childData]="child"></app-expand-child>
+  </div>
+  
+</mat-card>
